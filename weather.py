@@ -2,9 +2,11 @@
 import requests
 from region import get_region
 
-def get_weather(region_code):
-    forecast_url = f"https://www.jma.go.jp/bosai/forecast/data/forecast/{region_code}.json"
-    overview_url = f"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{region_code}.json"
+def get_weather(area_entry):
+    if area_entry == 1:
+        return("Not Found! (県は不要)")
+    forecast_url = f"https://www.jma.go.jp/bosai/forecast/data/forecast/{area_entry}.json"
+    overview_url = f"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{area_entry}.json"
     forecast_json = requests.get(forecast_url).json()
     overview_json = requests.get(overview_url).json()
 

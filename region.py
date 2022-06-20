@@ -1,4 +1,4 @@
-region_code = {'北海道':'016000',
+area_code = {'北海道':'016000',
             '青森':'020000',
             '岩手':'030000',
             '宮城':'040000',
@@ -47,13 +47,13 @@ region_code = {'北海道':'016000',
             '沖縄':'471000'
             }
 
-def get_region(region):
-    return(region_code.get(region, 1))
+def get_region(r_area):
+    return(area_code.get(r_area, 1))
 
 # Debug Variant
 if __name__ == '__main__':
     get_pref = input("Prefecture > ")
-    if (get_pref in region_code):
-        print(region_code[get_pref])
+    if (get_pref in area_code):
+        print(area_code[get_pref])
     else:
         print("Not Found")
