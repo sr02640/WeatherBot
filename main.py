@@ -7,7 +7,7 @@ from region import get_region
 from weather import get_weather
 
 # Discord Token
-token = "OTgzMjQ3MzIyMTkwMzE1NTMy.GlIlRJ.eCFibkIiajO9SZBaDW-CxXwqjkTXYjdi4ooX_g"
+token = ""
 # var
 bot = commands.Bot(command_prefix='!')
 
