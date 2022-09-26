@@ -27,7 +27,6 @@ logger.addHandler(handler)
 
 # Discord Token
 token = ""
-logger.info("Token setting")
 
 # var
 bot = commands.Bot(command_prefix='!')
@@ -40,14 +39,12 @@ async def on_ready():
 # Help Message
 @bot.command()
 async def weatherhelp(ctx):
-    logger.debug(command_exec("weatherhelp"))
     await ctx.send("HELP MESSAGE")
 
 # Weather Command Embed
 # ToDo: Add Error Message
 @bot.command()
 async def weatherbot(ctx, area):
-    logger.debug(command_exec(f"weatherbot {area}"))
     area_code = get_region(area)
     weather_information = get_weather(area_code)
     embed = discord.Embed(color=0x4169e1)
