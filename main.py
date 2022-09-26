@@ -5,7 +5,6 @@ import discord
 from discord.ext import commands
 from region import get_region
 from weather import get_weather
-from log_messages import command_exec
 import logging
 import logging.handlers
 

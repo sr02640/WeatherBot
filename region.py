@@ -76,7 +76,5 @@ def suffix_addition():
 # Debugs
 if __name__ == '__main__':
     get_pref = input("Prefecture > ")
-    if (get_pref in area_code):
-        print(area_code[get_pref])
-    else:
-        print("Not Found")
+    debug_pref = get_region(get_pref)
+    print(debug_pref)
