@@ -35,13 +35,6 @@ async def weatherhelp(ctx):
     logger.debug(command_exec("weatherhelp"))
     await ctx.send("HELP MESSAGE")
 
-# Weather Command Plain
-# @bot.command()
-# async def weatherbot(ctx, area):
-#     area_code = get_region(area)
-#     weather_information = get_weather(area_code)
-#     await ctx.send(weather_information)
-
 # Weather Command Embed
 @bot.command()
 async def weatherbot(ctx, area):
