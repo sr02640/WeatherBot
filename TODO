@@ -1,8 +1,8 @@
 TODO
-* Logging
-* ***-ken detection
+* Logging <- Temporary DONE
+* ***-ken detection <- DONE
 * Better Embed Visuals
 
 Low priority TODO
 * configurable file (toml)
-* City weathers
+* City weathers <- Not easy

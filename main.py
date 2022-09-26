@@ -36,6 +36,7 @@ async def on_ready():
     logger.info("Ready")
 
 # Help Message
+# ToDo Embed
 @bot.command()
 async def weatherhelp(ctx):
     await ctx.send("HELP MESSAGE")
