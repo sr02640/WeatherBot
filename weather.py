@@ -3,8 +3,8 @@ from dis import dis
 import requests
 from region import get_region
 
-# Getting Weather
-def get_weather(area_entry):
+# Getting Weather Old
+def get_weather_old(area_entry):
     if area_entry == 1:
         #return("Not Found! (県は不要)")
         return("ERROR")
@@ -24,10 +24,11 @@ def get_weather(area_entry):
 
     return(f"{weather_time}\n{weather}\n\n{overview_time}\n{overview}")
 
-# Getting Weather NewVer
-def get_weather_alt(area_entry,display="all"):
+# Getting Weather New
+def get_weather(area_entry,display="all"):
     if area_entry == 1:
-        return("Not Found! (県は不要)")
+        #return("Not Found! (県は不要)")
+        return("ERROR")
     forecast_url = f"https://www.jma.go.jp/bosai/forecast/data/forecast/{area_entry}.json"
     overview_url = f"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{area_entry}.json"
     forecast_json = requests.get(forecast_url).json()

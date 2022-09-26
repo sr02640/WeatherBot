@@ -7,15 +7,23 @@ from region import get_region
 from weather import get_weather
 from log_messages import command_exec
 import logging
+import logging.handlers
 
 # Logging Initialization
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
-lf = logging.FileHandler(filename="bot.log")
-lf.setLevel(logging.DEBUG)
-log_format = logging.Formatter('[%(levelname)s][%(asctime)s] - %(message)s')
-lf.setFormatter(log_format)
-logger.addHandler(lf)
+logging.getLogger('discord.http').setLevel(logging.INFO)
+
+handler = logging.handlers.RotatingFileHandler(
+    filename='bot.log',
+    encoding='utf-8',
+    maxBytes=32 * 1024 * 1024,
+    backupCount=5,
+)
+dt_fmt = '%Y-%m-%d %H:%M:%S'
+formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 # Discord Token
 token = ""
@@ -46,4 +54,4 @@ async def weatherbot(ctx, area):
     embed.add_field(name=f"{area}の天気",value=weather_information)
     await ctx.send(embed=embed)
 
-bot.run(token)
+bot.run(token, log_handler=None)
