@@ -6,7 +6,8 @@ from region import get_region
 # Getting Weather
 def get_weather(area_entry):
     if area_entry == 1:
-        return("Not Found! (県は不要)")
+        #return("Not Found! (県は不要)")
+        return("ERROR")
     forecast_url = f"https://www.jma.go.jp/bosai/forecast/data/forecast/{area_entry}.json"
     overview_url = f"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{area_entry}.json"
     forecast_json = requests.get(forecast_url).json()

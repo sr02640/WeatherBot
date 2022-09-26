@@ -47,14 +47,31 @@ area_code = {'北海道':'016000',
             '沖縄':'471000'
             }
 
-# "***-ken","***-dou" detection
-def region_fix():
-    pass
+# suffix detection
+def suffix_detection(raw_area):
+    # "fu" detection
+    if raw_area.endswith("府"):
+        return(raw_area.removesuffix("府"))
+    # "to" detection
+    elif raw_area.endswith("都"):
+        return(raw_area.removesuffix("都"))
+    # "ken" detection
+    elif raw_area.endswith("県"):
+        return(raw_area.removesuffix("県"))
+    # Not detected -> raw
+    else:
+        return(raw_area)
 
 # Return region name
 def get_region(r_area):
+    # Remove suffix
+    fix_area = suffix_detection(r_area)
     # Not Found -> Returning 1
-    return(area_code.get(r_area, 1))
+    return(area_code.get(fix_area, 1))
+
+# adding "ken" ;for output
+def suffix_addition():
+    pass
 
 # Debugs
 if __name__ == '__main__':

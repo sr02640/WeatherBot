@@ -36,6 +36,7 @@ async def weatherhelp(ctx):
     await ctx.send("HELP MESSAGE")
 
 # Weather Command Embed
+# ToDo: Add Error Message
 @bot.command()
 async def weatherbot(ctx, area):
     logger.debug(command_exec(f"weatherbot {area}"))
