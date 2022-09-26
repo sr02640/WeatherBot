@@ -47,10 +47,16 @@ area_code = {'北海道':'016000',
             '沖縄':'471000'
             }
 
+# "***-ken","***-dou" detection
+def region_fix():
+    pass
+
+# Return region name
 def get_region(r_area):
+    # Not Found -> Returning 1
     return(area_code.get(r_area, 1))
 
-# Debug Variant
+# Debugs
 if __name__ == '__main__':
     get_pref = input("Prefecture > ")
     if (get_pref in area_code):

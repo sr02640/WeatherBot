@@ -21,16 +21,16 @@ async def on_ready():
 async def weatherhelp(ctx):
     await ctx.send("HELP MESSAGE")
 
-# Weather Command
-@bot.command()
-async def weatherbot(ctx, area):
-    area_code = get_region(area)
-    weather_information = get_weather(area_code)
-    await ctx.send(weather_information)
+# Weather Command Plain
+# @bot.command()
+# async def weatherbot(ctx, area):
+#     area_code = get_region(area)
+#     weather_information = get_weather(area_code)
+#     await ctx.send(weather_information)
 
 # Weather Command Embed
 @bot.command()
-async def wbem(ctx, area):
+async def weatherbot(ctx, area):
     area_code = get_region(area)
     weather_information = get_weather(area_code)
     embed = discord.Embed(color=0x4169e1)

@@ -2,6 +2,7 @@
 import requests
 from region import get_region
 
+# Getting Weather
 def get_weather(area_entry):
     if area_entry == 1:
         return("Not Found! (県は不要)")
@@ -12,13 +13,16 @@ def get_weather(area_entry):
 
     weather_time = forecast_json[0]["timeSeries"][0]["timeDefines"][0]
     weather = forecast_json[0]["timeSeries"][0]["areas"][0]["weathers"][0]
+
     overview_time = overview_json["reportDatetime"]
     overview = overview_json["text"]
+
     weather = weather.replace('　', '')
     overview = overview.replace('　', '')
 
     return(f"{weather_time}\n{weather}\n\n{overview_time}\n{overview}")
 
+# Debug
 if __name__ == "__main__":
     get_pref = input("Pref > ")
     if get_region(get_pref) == 1:
