@@ -5,11 +5,21 @@ import discord
 from discord.ext import commands
 from region import get_region
 from weather import get_weather
+import logging
 
 # Discord Token
 token = ""
 # var
 bot = commands.Bot(command_prefix='!')
+
+# Logging Initialization
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+lf = logging.FileHandler(filename="bot.log")
+lf.setLevel(logging.DEBUG)
+log_format = logging.Formatter('[%(levelname)s][%(asctime)s] %(message)s')
+lf.setFormatter(log_format)
+logger.addHandler(lf)
 
 # Running Check
 @bot.event
