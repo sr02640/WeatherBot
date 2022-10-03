@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from dis import dis
 import requests
 from region import get_region
 
