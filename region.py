@@ -52,9 +52,8 @@ def suffix_detection(raw_area):
     # "fu" detection
     if raw_area.endswith("府"):
         return(raw_area.removesuffix("府"))
-    # "to" detection
-    # BUG:京都検出不可
-    elif raw_area.endswith("都"):
+    # "to" detection, except Kyoto
+    elif raw_area.endswith("都") and "京都" != raw_area:
         return(raw_area.removesuffix("都"))
     # "ken" detection
     elif raw_area.endswith("県"):
