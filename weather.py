@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import requests
-from region import get_region
 
 # Getting Weather
 def get_weather(area_entry,display="all"):
@@ -37,8 +36,9 @@ def get_weather(area_entry,display="all"):
 
 # Debug
 if __name__ == "__main__":
+    from region import get_region
     get_pref = input("Pref > ")
     if get_region(get_pref) == 1:
-        print("Region not found! (県は不要)")
+        print("ERROR")
     else:
         print(get_weather(get_region(get_pref)))
