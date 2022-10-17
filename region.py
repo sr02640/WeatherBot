@@ -70,8 +70,20 @@ def get_region(r_area):
     return(area_code.get(fix_area, 1))
 
 # adding "ken" ;for output
-def suffix_addition():
-    pass
+# 北海道、東京都、大阪府、京都府
+def suffix_addition(conv_area):
+    # Tokyo
+    if conv_area == "東京":
+        return(conv_area + "都")
+    # Osaka, Kyoto
+    elif conv_area == "大阪" or conv_area == "京都":
+        return(conv_area + "府")
+    # Hokkaido
+    elif conv_area == "北海道":
+        return(conv_area)
+    # Others
+    else:
+        return(conv_area + "県")
 
 # Debugs
 if __name__ == '__main__':
