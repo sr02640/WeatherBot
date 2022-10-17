@@ -18,17 +18,13 @@ log_setLevel_logger = setting.get_loglevel("logger")
 logger = logging.getLogger('Discord')
 # setLevel
 if log_setLevel == "DEBUG":
-    # DEBUG Level
     logger.setLevel(logging.DEBUG)
-    # INFO Level
 elif log_setLevel == "INFO":
     logger.setLevel(logging.INFO)
 # setLevel for Logger
 if log_setLevel_logger == "DEBUG":
-    # DEBUG Level
     logging.getLogger('discord.http').setLevel(logging.DEBUG)
 elif log_setLevel_logger == "INFO":
-    # INFO Level
     logging.getLogger('discord.http').setLevel(logging.INFO)
 # handler
 handler = logging.handlers.RotatingFileHandler(
