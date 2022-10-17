@@ -1,10 +1,25 @@
 # Libs
 import toml
+import sys
 
-# Load config file
-with open('./bot.toml') as f:
-    obj = toml.load(f)
-
+# Try load config file
+try:
+    with open('./bot.toml') as f:
+        obj = toml.load(f)
+except FileNotFoundError:
+    # Failed -> Generate File -> Exit Program
+    with open("./bot.toml", "w") as f:
+        data = {
+                "DISCORD_TOKEN": "INSERT_TOKEN", 
+                "LOG_LEVEL": {
+                        "CLIENT": "INFO", 
+                        "LOGGER": "INFO"
+                    }
+               }
+        toml.encoder.dump(data, f)
+        # Message
+        print("Edit configuration file. (Regenerated)")
+        sys.exit(0)
 
 # Get Token
 def get_token():
