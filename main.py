@@ -28,7 +28,9 @@ logger.addHandler(handler)
 token = ""
 
 # var
-bot = commands.Bot(command_prefix='!')
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='!', intents=intents)
 
 # Running Check
 @bot.event
