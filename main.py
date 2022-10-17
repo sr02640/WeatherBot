@@ -5,6 +5,7 @@ import discord
 from discord.ext import commands
 from region import get_region
 from weather import get_weather
+import log_messages
 import logging
 import logging.handlers
 
@@ -36,17 +37,20 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 @bot.event
 async def on_ready():
     logger.info("Ready")
+    print("Ready (Check bot.log!")
 
 # Help Message
 # ToDo Embed
 @bot.command()
 async def weatherhelp(ctx):
+    logger.info(log_messages.command_exec("weatherhelp"))
     await ctx.send("HELP MESSAGE")
 
 # Weather Command Embed
 # ToDo: Add Error Message
 @bot.command()
 async def weatherbot(ctx, area):
+    logger.info(log_messages.command_exec(f"weatherbot {area}"))
     area_code = get_region(area)
     weather_information = get_weather(area_code)
     embed = discord.Embed(color=0x4169e1)
