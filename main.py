@@ -16,25 +16,33 @@ log_setLevel_logger = setting.get_loglevel("logger")
 
 ### Logging Initialization
 logger = logging.getLogger('Discord')
+dt_fmt = '%Y-%m-%d %H:%M:%S'
+formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
+### Console Logging Initialization
+# Stream Handler
+stream_handler = logging.StreamHandler()
 # setLevel
 if log_setLevel == "DEBUG":
-    logger.setLevel(logging.DEBUG)
+    stream_handler.setLevel(logging.DEBUG)
 elif log_setLevel == "INFO":
-    logger.setLevel(logging.INFO)
+    stream_handler.setLevel(logging.INFO)
+# Set formats
+stream_handler.setFormatter(formatter)
+### File Logging Initialization
+logger.setLevel(logging.DEBUG)
 # setLevel for Logger
 if log_setLevel_logger == "DEBUG":
     logging.getLogger('discord.http').setLevel(logging.DEBUG)
 elif log_setLevel_logger == "INFO":
     logging.getLogger('discord.http').setLevel(logging.INFO)
-# handler
+# File Handler
 handler = logging.handlers.RotatingFileHandler(
     filename='bot.log',
     encoding='utf-8',
     maxBytes=32 * 1024 * 1024,
     backupCount=5,
-)# formats
-dt_fmt = '%Y-%m-%d %H:%M:%S'
-formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
+)
+# set formats
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
@@ -50,7 +58,6 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 @bot.event
 async def on_ready():
     logger.info("Ready")
-    print("Ready (Check bot.log!")
 
 # Help Message
 # ToDo Embed
