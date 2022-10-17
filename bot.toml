@@ -1,0 +1,12 @@
+##############################
+### Bot Configuration File ###
+##############################
+
+# Insert your discord bot token
+DISCORD_TOKEN = "INSERT_TOKEN"
+
+# Log Level
+# Available variant: DEBUG, INFO
+[LOG_LEVEL]
+CLIENT = "DEBUG"
+LOGGER = "INFO"

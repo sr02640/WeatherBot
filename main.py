@@ -1,34 +1,51 @@
 #!/bin/env python
-# Libraries
+### Libraries
 from turtle import title
 import discord
 from discord.ext import commands
 from region import get_region
 from weather import get_weather
+import setting
 import log_messages
 import logging
 import logging.handlers
 
-# Logging Initialization
-logger = logging.getLogger('discord')
-logger.setLevel(logging.DEBUG)
-logging.getLogger('discord.http').setLevel(logging.INFO)
+### Configuration Init
+log_setLevel = setting.get_loglevel("client")
+log_setLevel_logger = setting.get_loglevel("logger")
 
+### Logging Initialization
+logger = logging.getLogger('Discord')
+# setLevel
+if log_setLevel == "DEBUG":
+    # DEBUG Level
+    logger.setLevel(logging.DEBUG)
+    # INFO Level
+elif log_setLevel == "INFO":
+    logger.setLevel(logging.INFO)
+# setLevel for Logger
+if log_setLevel_logger == "DEBUG":
+    # DEBUG Level
+    logging.getLogger('discord.http').setLevel(logging.DEBUG)
+elif log_setLevel_logger == "INFO":
+    # INFO Level
+    logging.getLogger('discord.http').setLevel(logging.INFO)
+# handler
 handler = logging.handlers.RotatingFileHandler(
     filename='bot.log',
     encoding='utf-8',
     maxBytes=32 * 1024 * 1024,
     backupCount=5,
-)
+)# formats
 dt_fmt = '%Y-%m-%d %H:%M:%S'
 formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
-# Discord Token
-token = ""
+### Discord Token
+token = setting.get_token()
 
-# var
+### var
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
