@@ -130,4 +130,4 @@ dmypy.json
 
 # Temp and memos
 token
-playground.py
+playground/
