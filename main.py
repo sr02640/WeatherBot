@@ -16,6 +16,15 @@ log_setLevel_logger = setting.get_loglevel("logger")
 
 ### Logging Initialization
 logger = logging.getLogger('Discord')
+if log_setLevel == "DEBUG":
+    logger.setLevel(logging.DEBUG)
+elif log_setLevel == "INFO":
+    logger.setLevel(logging.INFO)
+# setLevel for Logger
+if log_setLevel_logger == "DEBUG":
+    logging.getLogger('discord.http').setLevel(logging.DEBUG)
+elif log_setLevel_logger == "INFO":
+    logging.getLogger('discord.http').setLevel(logging.INFO)
 dt_fmt = '%Y-%m-%d %H:%M:%S'
 formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
 ### Console Logging Initialization
@@ -29,12 +38,6 @@ elif log_setLevel == "INFO":
 # Set formats
 stream_handler.setFormatter(formatter)
 ### File Logging Initialization
-logger.setLevel(logging.DEBUG)
-# setLevel for Logger
-if log_setLevel_logger == "DEBUG":
-    logging.getLogger('discord.http').setLevel(logging.DEBUG)
-elif log_setLevel_logger == "INFO":
-    logging.getLogger('discord.http').setLevel(logging.INFO)
 # File Handler
 handler = logging.handlers.RotatingFileHandler(
     filename='bot.log',
@@ -45,6 +48,7 @@ handler = logging.handlers.RotatingFileHandler(
 # set formats
 handler.setFormatter(formatter)
 logger.addHandler(handler)
+logging.basicConfig(handlers=[stream_handler, handler])
 
 ### Discord Token
 token = setting.get_token()
