@@ -1,7 +1,7 @@
 TODO
 * Logging <- Temporary DONE (Broken)
 -* Set stream handler
--* Create logger.py
+-* Create rlog.py
 -* Expand Log output
 * ***-ken detection <- DONE
 * Better Embed Visuals
