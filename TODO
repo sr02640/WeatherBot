@@ -1,8 +1,15 @@
 TODO
-* Logging <- Temporary DONE
+* Logging <- Temporary DONE (Broken)
+-* Set stream handler
+-* Create logger.py
+-* Expand Log output
 * ***-ken detection <- DONE
 * Better Embed Visuals
 
 Low priority TODO
 * configurable file (toml) <- DONE
+-* Reconnection config
 * City weathers <- Not easy
+
+Dev TODO
+* Dev-only token load
