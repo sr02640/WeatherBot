@@ -1,7 +1,6 @@
 #!/bin/env python
 ### Libraries
 from turtle import title
-from unittest import TestSuite
 import discord
 from discord.ext import commands
 from region import get_region
