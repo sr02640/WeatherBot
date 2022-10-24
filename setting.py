@@ -28,7 +28,7 @@ def get_token():
 # Get Log Level
 def get_loglevel(req = "stream"):
     # Console Output
-    if req == "client":
+    if req == "stream":
         return (obj["LOG_LEVEL"]["STREAM"])
     # File Handler
     elif req == "file":
