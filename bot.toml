@@ -8,5 +8,8 @@ DISCORD_TOKEN = "INSERT_TOKEN"
 # Log Level
 # Available variant: DEBUG, INFO
 [LOG_LEVEL]
-CLIENT = "DEBUG"
-LOGGER = "INFO"
+STREAM = "INFO"
+FILE   = "DEBUG"
+HTTP   = "INFO"
+CLIENT = "INFO"
+GTWAY  = "INFO"

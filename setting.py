@@ -26,13 +26,22 @@ def get_token():
     return (obj["DISCORD_TOKEN"])
 
 # Get Log Level
-def get_loglevel(req = "client"):
-    # Client
+def get_loglevel(req = "stream"):
+    # Console Output
     if req == "client":
-        return (obj["LOG_LEVEL"]["CLIENT"])
+        return (obj["LOG_LEVEL"]["STREAM"])
+    # File Handler
+    elif req == "file":
+        return (obj["LOG_LEVEL"]["FILE"])
     # discord.http
-    elif req == "logger":
-        return (obj["LOG_LEVEL"]["LOGGER"])
+    elif req == "http":
+        return (obj["LOG_LEVEL"]["HTTP"])
+    # discord.client
+    elif req == "client":
+        return (obj["LOG_LEVEL"]["CLIENT"])
+    # discord.gateway
+    elif req == "gateway":
+        return (obj["LOG_LEVEL"]["GTWAY"])
     # all
     elif req == "all":
         return (obj["LOG_LEVEL"])
