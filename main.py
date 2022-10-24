@@ -1,12 +1,12 @@
 #!/bin/env python
 ### Libraries
+import setting
+import rlog
 from turtle import title
 import discord
 from discord.ext import commands
 from region import get_region
 from weather import get_weather
-import setting
-import rlog
 
 ### Config
 log_setLevel = setting.get_loglevel("stream")

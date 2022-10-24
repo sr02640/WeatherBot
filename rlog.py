@@ -1,8 +1,9 @@
+##### Load : High Priority
 # Libraries
+import setting
 import discord
 import logging
 import logging.handlers
-import setting
 
 # Config
 stream_setLevel = setting.get_loglevel("stream")
