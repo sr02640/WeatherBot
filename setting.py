@@ -22,6 +22,7 @@ except FileNotFoundError:
         sys.exit(0)
 
 # Get Token
+# ToDo: DevMode
 def get_token():
     return (obj["DISCORD_TOKEN"])
 

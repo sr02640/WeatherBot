@@ -1,5 +1,5 @@
-#!/usr/bin/env python
 import requests
+import rlog
 
 # Getting Weather
 def get_weather(area_entry,display="all"):

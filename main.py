@@ -44,4 +44,5 @@ async def weatherbot(ctx, area):
     await ctx.send(embed=embed)
 
 # Run
+# Console Output
 bot.run(token, reconnect=True, log_level=log_setLevel, root_logger=True)
