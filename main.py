@@ -2,6 +2,7 @@
 ### Libraries
 import setting
 import rlog
+import sys
 from turtle import title
 import discord
 from discord.ext import commands
@@ -9,13 +10,21 @@ from region import get_region
 from weather import get_weather
 
 ### Config
+logger = rlog.rlogger
 log_setLevel = setting.get_loglevel("stream")
+args = sys.argv
 
 ### Discord Token
-token = setting.get_token()
+if args[1] == "-D" or args[1] == "--dev":
+    # DevMode
+    logger.info("Loaded token by DevMode (local)")
+    token = setting.get_token("dev")
+else:
+    # Default
+    logger.info("Loaded token (local)")
+    token = setting.get_token("default")
 
 ### var
-logger = rlog.rlogger
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
