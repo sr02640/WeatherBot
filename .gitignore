@@ -129,5 +129,7 @@ dmypy.json
 .pyre/
 
 # Temp and memos
-token
 playground/
+
+# Dev Mode Token
+token.txt
