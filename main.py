@@ -9,7 +9,7 @@ import setting
 import rlog
 
 ### Config
-log_setLevel = setting.get_loglevel("client")
+log_setLevel = setting.get_loglevel("stream")
 
 ### Discord Token
 token = setting.get_token()
