@@ -3,6 +3,10 @@
 import toml
 import sys
 
+# Load Dev Mode Token
+with open("token.txt", "r") as f:
+    dev_token = f.read()
+
 # Try load config file
 try:
     with open('./bot.toml') as f:
@@ -23,9 +27,11 @@ except FileNotFoundError:
         sys.exit(0)
 
 # Get Token
-# ToDo: DevMode
-def get_token():
-    return (obj["DISCORD_TOKEN"])
+def get_token(mode = "default"):
+    if mode == "default":
+        return (obj["DISCORD_TOKEN"])
+    elif mode == "dev":
+        return (dev_token)
 
 # Get Log Level
 def get_loglevel(req = "stream"):
