@@ -4,7 +4,7 @@ import toml
 import sys
 
 # Load Dev Mode Token
-with open("token.txt", "r") as f:
+with open("./token.txt", "r") as f:
     dev_token = f.read()
 
 # Try load config file
