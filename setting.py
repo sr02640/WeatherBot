@@ -1,11 +1,13 @@
 ##### Load : Ult-High Priority
 # Libs
 import toml
+import os
 import sys
 
 # Load Dev Mode Token
-with open("./token.txt", "r") as f:
-    dev_token = f.read()
+if os.path.exists("./token.txt"):
+    with open("./token.txt", "r") as f:
+        dev_token = f.read()
 
 # Try load config file
 try:
@@ -31,7 +33,11 @@ def get_token(mode = "default"):
     if mode == "default":
         return (obj["DISCORD_TOKEN"])
     elif mode == "dev":
-        return (dev_token)
+        if os.path.exists("./token.txt"):
+            return (dev_token)
+        else:
+            # Errors
+            return (obj["DISCORD_TOKEN"])
 
 # Get Log Level
 def get_loglevel(req = "stream"):
