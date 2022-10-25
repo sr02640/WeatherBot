@@ -1,15 +1,16 @@
 TODO
-* Logging <- Temporary DONE (Broken)
--* Set stream handler
--* Create rlog.py
--* Expand Log output
+* Logging <- Temporary DONE
+-* Set stream handler <- DONE
+-* Create rlog.py <- DONE
+-* Expand Log output <- DONE
+-* Improve.
 * ***-ken detection <- DONE
 * Better Embed Visuals
 
 Low priority TODO
 * configurable file (toml) <- DONE
--* Reconnection config
+-* Reconnection config <- FORCED
 * City weathers <- Not easy
 
 Dev TODO
-* Dev-only token load
+* Dev-only token load <- Temporary DONE
