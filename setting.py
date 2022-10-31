@@ -19,8 +19,11 @@ except FileNotFoundError:
         data = {
                 "DISCORD_TOKEN": "INSERT_TOKEN", 
                 "LOG_LEVEL": {
-                        "CLIENT": "INFO", 
-                        "LOGGER": "INFO"
+                        "STREAM": "INFO",
+                        "FILE": "DEBUG",
+                        "HTTP": "INFO",
+                        "CLIENT": "INFO",
+                        "GTWAY": "INFO"
                     }
                }
         toml.encoder.dump(data, f)
