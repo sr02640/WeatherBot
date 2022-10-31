@@ -1,6 +1,7 @@
 ### Some code copied from https://github.com/Rapptz/discord.py/ ###
 # Libraries
 import logging
+import logging.handlers
 
 # Formatter 
 class _ColourFormatter(logging.Formatter):
@@ -40,12 +41,20 @@ class _ColourFormatter(logging.Formatter):
 initlogger = logging.getLogger("Init Level")
 initlogger.setLevel(logging.INFO)
 stream_handler = logging.StreamHandler()
+file_handler = logging.handlers.RotatingFileHandler(filename='bot.log', encoding='utf-8', maxBytes=32 * 1024 * 1024)
+
+# Formatter
+dt_fmt = '%Y-%m-%d %H:%M:%S'
 # Stream Format
 if isinstance(stream_handler, logging.StreamHandler):
     formatter = _ColourFormatter()
 else:
-    dt_fmt = '%Y-%m-%d %H:%M:%S'
     formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
+# File Format
+file_formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
+
 # Setting Handler
 stream_handler.setFormatter(formatter)
+file_handler.setFormatter(file_formatter)
 initlogger.addHandler(stream_handler)
+initlogger.addHandler(file_handler)
