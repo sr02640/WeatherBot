@@ -1,6 +1,5 @@
 #!/bin/env python
 ### Libraries
-from ast import Try
 from turtle import title
 import init_log
 import setting
@@ -77,6 +76,6 @@ async def weatherbot(ctx, area):
 try:
     bot.run(token, reconnect=True, log_level=log_setLevel, root_logger=True)
 except discord.errors.LoginFailure:
-    logger.error("!!! Token Problem !!!")
+    logger.error("!!! Token Problems !!!")
     logger.error("!!! Check your token (bot.toml) !!!")
     sys.exit(1)
