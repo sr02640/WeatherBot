@@ -58,9 +58,11 @@ async def weatherbot(ctx, area):
     area_code = get_region(area)
     if area_code == 1:
         # Error
+        logger.warn(f"{area} : Not Found")
         embed = discord.Embed(title = "エラー", description = f"{area}は見つかりませんでした！", color = 0xffff00)
     else: 
         # Normal
+        logger.debug(f"Getting {area}'s weather ")
         w_info = get_weather(area_code, "weather")
         ov_info = get_weather(area_code, "overview")
         suf_area = suffix_addition(suffix_detection(area))

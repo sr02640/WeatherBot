@@ -41,7 +41,7 @@ rlogger.addHandler(handler)
 
 ### File Handler Setup
 # File Output
-discord.utils.setup_logging(handler=handler, level=file_setLevel, root=False)
+discord.utils.setup_logging(handler=handler, level=file_setLevel, root=True)
 
 ### Messages 
 # [Debug] command executed: ********

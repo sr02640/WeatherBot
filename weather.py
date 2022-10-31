@@ -7,7 +7,7 @@ def get_weather(area_entry, display="all"):
     # Area code checking
     if area_entry == 1:
         logger.warn(f"{area_entry} : Not Found")
-        return("ERROR")
+        return(1)
     # Requests
     logger.debug(f"{area_entry} : Getting")
     forecast_url = f"https://www.jma.go.jp/bosai/forecast/data/forecast/{area_entry}.json"
