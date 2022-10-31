@@ -3,10 +3,10 @@ TODO
 -* Set stream handler <- DONE
 -* Create rlog.py <- DONE
 -* Expand Log output <- DONE
--* Improve.
--* Low-Level logger
+-* Improve. <- DONE?
+-* Low-Level logger <- DONE
 * ***-ken detection <- DONE
-* Better Embed Visuals
+* Better Embed Visuals <- Almost DONE
 
 Low priority TODO
 * configurable file (toml) <- DONE
@@ -14,4 +14,4 @@ Low priority TODO
 * City weathers <- Not easy
 
 Dev TODO
-* Dev-only token load <- Temporary DONE
+* Dev-only token load <- Almost DONE
