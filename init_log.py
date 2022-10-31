@@ -1,21 +1,6 @@
 ### Some code copied from https://github.com/Rapptz/discord.py/ ###
 # Libraries
 import logging
-import sys, os
-from typing import Any
-
-def stream_supports_colour(stream: Any) -> bool:
-    # Pycharm and Vscode support colour in their inbuilt editors
-    if 'PYCHARM_HOSTED' in os.environ or os.environ.get('TERM_PROGRAM') == 'vscode':
-        return True
-
-    is_a_tty = hasattr(stream, 'isatty') and stream.isatty()
-    if sys.platform != 'win32':
-        return is_a_tty
-
-    # ANSICON checks for things like ConEmu
-    # WT_SESSION checks if this is Windows Terminal
-    return is_a_tty and ('ANSICON' in os.environ or 'WT_SESSION' in os.environ)
 
 # Formatter 
 class _ColourFormatter(logging.Formatter):
@@ -55,7 +40,7 @@ class _ColourFormatter(logging.Formatter):
 initlogger = logging.getLogger("Init Level")
 initlogger.setLevel(logging.INFO)
 stream_handler = logging.StreamHandler()
-if isinstance(stream_handler, logging.StreamHandler) and stream_supports_colour(stream_handler):
+if isinstance(stream_handler, logging.StreamHandler):
     formatter = _ColourFormatter()
 else:
     dt_fmt = '%Y-%m-%d %H:%M:%S'
