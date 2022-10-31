@@ -1,5 +1,6 @@
 #!/bin/env python
 ### Libraries
+from turtle import title
 import init_log as ilog
 import setting
 import rlog
@@ -28,7 +29,6 @@ else:
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
-embed = discord.Embed(color=0x4169e1)
 
 # Running Check
 @bot.event
@@ -40,7 +40,14 @@ async def on_ready():
 @bot.command()
 async def weatherhelp(ctx):
     logger.info(rlog.command_exec("weatherhelp"))
-    await ctx.send("HELP MESSAGE")
+    desc = """
+    !weatherhelp : ヘルプコマンド
+    !weatherbot [地域(県)] : 天気情報を取得するコマンド
+    
+    天気情報は気象庁サイト(https://www.jma.go.jp/)から取得しています。
+    """
+    embed = discord.Embed(title = "コマンド一覧", description = desc, color=0x4169e1)
+    await ctx.send(embed = embed)
 
 # Weather Command Embed
 # ToDo: Add Error Message
@@ -50,17 +57,16 @@ async def weatherbot(ctx, area):
     area_code = get_region(area)
     if area_code == 1:
         # Error
-        embed = discord.Embed(color = 0xffff00) # Change Color -> Yellow
-        embed.add_field(name = "エラー", value = f"{area}は見つかりませんでした！")
+        embed = discord.Embed(title = "エラー", description = f"{area}は見つかりませんでした！", color = 0xffff00)
     else: 
         # Normal
         w_info = get_weather(area_code, "weather")
         ov_info = get_weather(area_code, "overview")
         suf_area = suffix_addition(area)
-        w_embed = discord.Embed(title = f"{suf_area}の天気", description = "天気情報は以下の通りです", color = 0x4169e1)
-        w_embed.add_field(name = "予報", value = w_info)
-        w_embed.add_field(name = "概要", value = ov_info)
-    await ctx.send(embed = w_embed)
+        embed = discord.Embed(title = f"{suf_area}の天気", description = "天気情報は以下の通りです", color = 0x4169e1)
+        embed.add_field(name = "予報", value = w_info)
+        embed.add_field(name = "概要", value = ov_info)
+    await ctx.send(embed = embed)
 
 # Run
 # Console Output
