@@ -3,7 +3,7 @@ import rlog
 logger = rlog.rlogger
 
 # Getting Weather
-def get_weather(area_entry,display="all"):
+def get_weather(area_entry, display="all"):
     # Area code checking
     if area_entry == 1:
         logger.warn(f"{area_entry} : Not Found")
