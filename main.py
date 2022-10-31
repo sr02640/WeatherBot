@@ -1,7 +1,7 @@
 #!/bin/env python
 ### Libraries
 from turtle import title
-import init_log as ilog
+import init_log
 import setting
 import rlog
 import sys
@@ -11,6 +11,7 @@ from region import get_region, suffix_addition, suffix_detection
 from weather import get_weather
 
 ### Config
+init_logger = init_log.initlogger
 logger = rlog.rlogger
 log_setLevel = setting.get_loglevel("stream")
 args = sys.argv
@@ -18,11 +19,11 @@ args = sys.argv
 ### Discord Token
 if args[1] == "-D" or args[1] == "--dev":
     # DevMode
-    logger.info("Loaded token by DevMode (local)")
+    init_logger.info("Load token by DevMode (local)")
     token = setting.get_token("dev")
 else:
     # Default
-    logger.info("Loaded token (local)")
+    init_logger.info("Load token (local)")
     token = setting.get_token("default")
 
 ### var

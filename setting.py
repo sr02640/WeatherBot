@@ -1,20 +1,28 @@
 ##### Load : Ult-High Priority
 # Libs
+import init_log
 import toml
 import os
 import sys
 
+# Config
+logger = init_log.initlogger
+
 # Load Dev Mode Token
+logger.info("Trying load token.txt")
 if os.path.exists("./token.txt"):
+    logger.info("token.txt Exists")
     with open("./token.txt", "r") as f:
         dev_token = f.read()
 
-# Try load config file
+# Try load config file]
+logger.info("Trying load bot.toml")
 try:
     with open('./bot.toml') as f:
         obj = toml.load(f)
 except FileNotFoundError:
     # Failed -> Generate File -> Exit Program
+    logger.info("Configurration file not found")
     with open("./bot.toml", "w") as f:
         data = {
                 "DISCORD_TOKEN": "INSERT_TOKEN", 
@@ -40,6 +48,8 @@ def get_token(mode = "default"):
             return (dev_token)
         else:
             # Errors
+            logger.warn("token.txt not found")
+            logger.warn("Trying load default token")
             return (obj["DISCORD_TOKEN"])
 
 # Get Log Level
