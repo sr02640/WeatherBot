@@ -17,10 +17,11 @@ log_setLevel = setting.get_loglevel("stream")
 args = sys.argv
 
 ### Discord Token
-if args[1] == "-D" or args[1] == "--dev":
-    # DevMode
-    init_logger.info("Load token by DevMode (local)")
-    token = setting.get_token("dev")
+if len(args) > 1:
+    if args[1] == "-D" or args[1] == "--dev":
+        # DevMode
+        init_logger.info("Load token by DevMode (local)")
+        token = setting.get_token("dev")
 else:
     # Default
     init_logger.info("Load token (local)")
