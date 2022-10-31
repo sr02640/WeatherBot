@@ -7,7 +7,7 @@ import rlog
 import sys
 import discord
 from discord.ext import commands
-from region import get_region, suffix_addition
+from region import get_region, suffix_addition, suffix_detection
 from weather import get_weather
 
 ### Config
@@ -63,7 +63,7 @@ async def weatherbot(ctx, area):
         # Normal
         w_info = get_weather(area_code, "weather") + "\n"
         ov_info = get_weather(area_code, "overview") + "\n"
-        suf_area = suffix_addition(area)
+        suf_area = suffix_addition(suffix_detection(area))
         embed = discord.Embed(title = f"{suf_area}の天気", description = "天気情報は以下の通りです\n", color = 0x4169e1)
         embed.add_field(name = "予報", value = w_info)
         embed.add_field(name = "概要", value = ov_info)
