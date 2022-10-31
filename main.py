@@ -1,5 +1,6 @@
 #!/bin/env python
 ### Libraries
+from ast import Try
 from turtle import title
 import init_log
 import setting
@@ -38,7 +39,6 @@ async def on_ready():
     logger.info("Ready")
 
 # Help Message
-# ToDo Embed
 @bot.command()
 async def weatherhelp(ctx):
     logger.info(rlog.command_exec("weatherhelp"))
@@ -53,7 +53,6 @@ async def weatherhelp(ctx):
     await ctx.send(embed = embed)
 
 # Weather Command Embed
-# ToDo: Add Error Message
 @bot.command()
 async def weatherbot(ctx, area):
     logger.info(rlog.command_exec(f"weatherbot {area}"))
@@ -75,4 +74,9 @@ async def weatherbot(ctx, area):
 
 # Run
 # Console Output
-bot.run(token, reconnect=True, log_level=log_setLevel, root_logger=True)
+try:
+    bot.run(token, reconnect=True, log_level=log_setLevel, root_logger=True)
+except discord.errors.LoginFailure:
+    logger.critical("!!! Token not found !!!")
+    logger.critical("!!! Edit conifiguration file (bot.toml) !!!")
+    sys.exit(1)
