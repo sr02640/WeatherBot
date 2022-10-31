@@ -61,8 +61,8 @@ async def weatherbot(ctx, area):
         embed = discord.Embed(title = "エラー", description = f"{area}は見つかりませんでした！", color = 0xffff00)
     else: 
         # Normal
-        w_info = get_weather(area_code, "weather") + "\n"
-        ov_info = get_weather(area_code, "overview") + "\n"
+        w_info = get_weather(area_code, "weather")
+        ov_info = get_weather(area_code, "overview")
         suf_area = suffix_addition(suffix_detection(area))
         embed = discord.Embed(title = f"{suf_area}の天気", description = "天気情報は以下の通りです\n", color = 0x4169e1)
         embed.add_field(name = "予報", value = w_info)
