@@ -77,6 +77,6 @@ async def weatherbot(ctx, area):
 try:
     bot.run(token, reconnect=True, log_level=log_setLevel, root_logger=True)
 except discord.errors.LoginFailure:
-    logger.error("!!! Token not found !!!")
-    logger.error("!!! Edit conifiguration file (bot.toml) !!!")
+    logger.error("!!! Token Problem !!!")
+    logger.error("!!! Check your token (bot.toml) !!!")
     sys.exit(1)
