@@ -43,7 +43,7 @@ async def weatherhelp(ctx):
     desc = """
     !weatherhelp : ヘルプコマンド
 
-    !weatherbot [地域(県)] : 天気情報を取得するコマンド
+    !weatherbot [都道府県] : 天気情報を取得するコマンド
     
     天気情報は気象庁サイト( https://www.jma.go.jp/ )から取得しています。
     """
