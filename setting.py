@@ -11,7 +11,7 @@ logger = init_log.initlogger
 # Load Dev Mode Token
 logger.info("Trying load token.txt")
 if os.path.exists("./token.txt"):
-    logger.info("token.txt Exists")
+    logger.info("Exists token.txt")
     with open("./token.txt", "r") as f:
         dev_token = f.read()
 
