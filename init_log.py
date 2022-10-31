@@ -1,6 +1,7 @@
 ### Some code copied from https://github.com/Rapptz/discord.py/ ###
 # Libraries
 import logging
+import logging.handlers
 
 # Formatter 
 class _ColourFormatter(logging.Formatter):
