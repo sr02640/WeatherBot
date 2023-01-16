@@ -1,3 +1,7 @@
+############ MIT License ##############
+#######################################
+### Copyright (c) 2022, 2023 N0Rstd ###
+#######################################
 import requests
 import rlog
 logger = rlog.rlogger
